@@ -1,8 +1,12 @@
 from django.db import models
 from django.utils import timezone
+from django_resized import ResizedImageField
 class Post(models.Model):
     author = models.ForeignKey('auth.User',on_delete=models.CASCADE)
     title = models.CharField(max_length=200)
+    # fotoCapa = models.ImageField() - versão 1
+    # fotoCapa = models.ResizedImageField() - versão 2
+    fotoCapa = ResizedImageField(size=[400, 300], force_format='PNG')
     text = models.TextField()
     created_date = models.DateTimeField(
             default=timezone.now)
