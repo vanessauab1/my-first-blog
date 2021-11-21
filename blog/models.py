@@ -6,7 +6,7 @@ class Post(models.Model):
     title = models.CharField(max_length=200)
     # fotoCapa = models.ImageField() - versão 1
     # fotoCapa = models.ResizedImageField() - versão 2
-    fotoCapa = ResizedImageField(size=[400, 300], force_format='PNG')
+    fotoCapa =ResizedImageField(size=[400, 300], upload_to='media/', blank=True, null=True, force_format = 'png' )
     text = models.TextField()
     created_date = models.DateTimeField(
             default=timezone.now)
