@@ -13,5 +13,21 @@
         <h2>{{ post.title }}</h2>
         <p> <img src = "/media/{{post.fotoCapa }}" alt="Image"> </p>
         <p>{{ post.text|linebreaksbr }}</p>
+
+
+        <p>Link(s) Sugerido(s)</p>
+
+        {% if  post.campoURL1 != null  %}
+            <p>{{ post.campoURL1|urlizetrunc:100 }}</p>
+        {% endif %}
+
+        {% if  post.campoURL2 != null %}
+            <p>{{ post.campoURL2|urlizetrunc:100 }}</p>
+        {% endif %}
+        
+        {% if post.campoURL3 != null %}
+            <p>{{ post.campoURL3|urlizetrunc:100 }}</p>
+        {% endif %}
+
     </div>
 {% endblock %}

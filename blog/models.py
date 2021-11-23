@@ -1,6 +1,6 @@
 from django.db import models
 from django.utils import timezone
-from django_resized import ResizedImageField
+from django_resized import ResizedImageField, forms
 class Post(models.Model):
     author = models.ForeignKey('auth.User',on_delete=models.CASCADE)
     title = models.CharField(max_length=200)
@@ -12,6 +12,9 @@ class Post(models.Model):
             default=timezone.now)
     published_date = models.DateTimeField(
             blank=True, null=True)
+    campoURL1  = models.URLField('URL',null=True,blank=True) 
+    campoURL2  = models.URLField('URL',null=True,blank=True) 
+    campoURL3  = models.URLField('URL',null=True,blank=True)      
 
     def publish(self):
         self.published_date = timezone.now()
